@@ -10,3 +10,7 @@ export interface Stock {
   id: number;
   amount: number;
 }
+
+export interface CartItemsAmount {
+  [key: number]: number;
+}
