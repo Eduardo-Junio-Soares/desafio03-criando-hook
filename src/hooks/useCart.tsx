@@ -2,7 +2,6 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
   useState,
 } from "react";
 import { toast } from "react-toastify";
@@ -86,10 +85,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const removeProduct = async (productId: number) => {
     try {
       const isExistInCart = cart.find((item) => item.id === productId);
-      console.log(
-        "🚀 ~ file: useCart.tsx ~ line 89 ~ removeProduct ~ isExistInCart",
-        isExistInCart
-      );
+
       if (!isExistInCart) {
         return toast.error("Erro na remoção do produto");
       }
