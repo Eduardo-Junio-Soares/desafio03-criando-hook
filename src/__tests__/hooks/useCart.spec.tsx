@@ -297,6 +297,7 @@ describe('useCart Hook', () => {
     apiMock.onGet(`stock/${productId}`).reply(200, {
       id: 2,
       amount: 5,
+      isDecrement: false,
     });
 
     const { result, waitForNextUpdate } = renderHook(useCart, {
@@ -304,7 +305,7 @@ describe('useCart Hook', () => {
     });
 
     act(() => {
-      result.current.updateProductAmount({ amount: 2, productId });
+      result.current.updateProductAmount({ amount: 2, productId, isDecrement: false });
     });
 
     await waitForNextUpdate({ timeout: 200 });
